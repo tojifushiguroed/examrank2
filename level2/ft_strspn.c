@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   ft_strspn.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egolboyu <egolboyu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 13:39:59 by egolboyu          #+#    #+#             */
-/*   Updated: 2024/02/07 15:29:33 by egolboyu         ###   ########.fr       */
+/*   Created: 2024/02/07 14:43:08 by egolboyu          #+#    #+#             */
+/*   Updated: 2024/02/07 15:30:45 by egolboyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-size_t	ft_strcspn(const char *s, const char *charset)
+
+size_t	ft_strspn(const char *s, const char *accept)
+
 {
 	int i = 0;
 	int j = 0;
 
-	while (s[j])
+	while (accept[i])
 	{
-		while (charset[i])
+		while (s[j])
 		{
-			if (charset[i] == s[j])
-				break ;
-			i++;
+			if (accept[i] == s[j])
+				return (j);
+			j++;
 		}
-		j++;
-		if (!charset[j])
-            return (i);
+		i++;
 	}
 	return (0);
 }
@@ -35,11 +35,11 @@ size_t	ft_strcspn(const char *s, const char *charset)
 // int main(void) 
 // {
 // 	char s[] = "Merhaba, Dunya!";
-// 	char charset[] = "Merve";
+// 	char accept[] = " ";
 
-// 	size_t num = ft_strcspn(s, charset);
+// 	size_t num = ft_strspn(s, accept);
 
-// 	printf("Eşleşmeyen ilk karakterin bulunduğu indis: %zu\n", num);
+// 	printf("Eşleşen karakterin bulunduğu indis %zu\n", num);
 
 // 	return(0);
 // }
