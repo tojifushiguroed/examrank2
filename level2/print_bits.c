@@ -6,7 +6,7 @@
 /*   By: egolboyu <egolboyu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:53:07 by egolboyu          #+#    #+#             */
-/*   Updated: 2024/02/06 14:18:38 by egolboyu         ###   ########.fr       */
+/*   Updated: 2024/02/23 22:01:00 by egolboyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	print_bits(unsigned char octet)
 {
-	int	i = 7;
-
+	int	i;
+	
+	i = 8;
 	while (i--)
 	{
 		if (octet >> i & 1)
@@ -23,12 +24,13 @@ void	print_bits(unsigned char octet)
 		else
 			write(1, "0", 1);
 	}
+	write(1, "\n", 1);
 }
 
 // #include <stdio.h>
 // int main()
 // {
-// 	print_bits(0);
+// 	print_bits(2);
 // 	printf("\n");
 // 	print_bits(255);
 // 	printf("\n");
